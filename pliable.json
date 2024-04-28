@@ -1,6 +1,6 @@
 {
     "plb_config_version": "1",
-    "generated_at": "2024-04-27T22:29:54.740193",
+    "generated_at": "2024-04-28T01:09:17.379460",
     "nodes": [
         {
             "id": "662d78acadb38b779c2a7517",
@@ -868,71 +868,6 @@
                 "filters": null,
                 "upstream_node_ids": [
                     "662d78acadb38b779c2a7517"
-                ]
-            }
-        },
-        {
-            "id": "662d7b1245256a705bb69498",
-            "name": "page_merge",
-            "description": "I really want this to be a Dimension",
-            "type": "MERGE",
-            "dbt_model_path": null,
-            "dbt_schema": null,
-            "config": {
-                "table_name": "",
-                "combine_logic_gate": "AND",
-                "combine_required_match_count": 1,
-                "combine_behavior": "MERGE",
-                "composite_key": null,
-                "last_modified_column": null,
-                "fields": [
-                    {
-                        "id": "1C22GRC9RW",
-                        "type": "STRING",
-                        "label": "PAGE_PATH",
-                        "name": "PAGE_PATH",
-                        "description": "This should be 1 row for every unique page",
-                        "map_options": [
-                            {
-                                "id": "FF9CHEM33I",
-                                "source_node_id": "662d7a7645256a705bb69493",
-                                "attribute_key": "PAGE_PATH",
-                                "attribute_id": "0b9c50629d5acd1ea0d74867f0ed6928",
-                                "concat_joiner": null,
-                                "combination_rule": "PICK_ONE",
-                                "sub_options": null,
-                                "join_path": null
-                            },
-                            {
-                                "id": "8TDRYRPH53",
-                                "source_node_id": "662d7abdadb38b779c2a7520",
-                                "attribute_key": "Extract Page",
-                                "attribute_id": "FIP65AD2PV",
-                                "concat_joiner": null,
-                                "combination_rule": "PICK_ONE",
-                                "sub_options": null,
-                                "join_path": null
-                            }
-                        ],
-                        "part_of_composite_key": true,
-                        "taxonomic_id": "",
-                        "transformer": null,
-                        "transformer_arguments": null,
-                        "relationship_id": null,
-                        "merge_behavior": "PRIORITIZE",
-                        "advanced_mode": false,
-                        "custom_sql": null
-                    }
-                ],
-                "filters": {
-                    "filters": [],
-                    "logic_gate": "CUSTOM",
-                    "search_query": null,
-                    "custom_sql": ""
-                },
-                "upstream_node_ids": [
-                    "662d7a7645256a705bb69493",
-                    "662d7abdadb38b779c2a7520"
                 ]
             }
         }
