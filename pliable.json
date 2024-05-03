@@ -1,6 +1,6 @@
 {
     "plb_config_version": "1",
-    "generated_at": "2024-04-28T01:09:17.379460",
+    "generated_at": "2024-05-03T17:22:09.329236",
     "nodes": [
         {
             "id": "662d78acadb38b779c2a7517",
@@ -219,7 +219,9 @@
                     }
                 ],
                 "filters": null,
-                "upstream_node_ids": []
+                "upstream_node_ids": [],
+                "special_node_args": null,
+                "include_in_snapshots": false
             }
         },
         {
@@ -233,7 +235,7 @@
                 "table_name": "",
                 "combine_logic_gate": "AND",
                 "combine_required_match_count": 1,
-                "combine_behavior": "AGGREGATE",
+                "combine_behavior": "MERGE",
                 "composite_key": null,
                 "last_modified_column": null,
                 "fields": [
@@ -268,7 +270,9 @@
                 "filters": null,
                 "upstream_node_ids": [
                     "662d78acadb38b779c2a7517"
-                ]
+                ],
+                "special_node_args": null,
+                "include_in_snapshots": false
             }
         },
         {
@@ -312,12 +316,30 @@
                         "merge_behavior": "PRIORITIZE",
                         "advanced_mode": false,
                         "custom_sql": null
+                    },
+                    {
+                        "id": "VKYD1QY3DA",
+                        "type": "STRING",
+                        "label": "Brand Search",
+                        "name": "Brand Search",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": true,
+                        "custom_sql": "case when lower(\"QUERY\") like '%andro%' then true else false end"
                     }
                 ],
                 "filters": null,
                 "upstream_node_ids": [
                     "662d78d9adb38b779c2a751b"
-                ]
+                ],
+                "special_node_args": null,
+                "include_in_snapshots": false
             }
         },
         {
@@ -533,7 +555,9 @@
                     }
                 ],
                 "filters": null,
-                "upstream_node_ids": []
+                "upstream_node_ids": [],
+                "special_node_args": null,
+                "include_in_snapshots": false
             }
         },
         {
@@ -868,10 +892,1285 @@
                 "filters": null,
                 "upstream_node_ids": [
                     "662d78acadb38b779c2a7517"
-                ]
+                ],
+                "special_node_args": null,
+                "include_in_snapshots": false
+            }
+        },
+        {
+            "id": "663121821efd5175ce68478c",
+            "name": "file_upload_test_ahrefs",
+            "description": "",
+            "type": "SOURCE",
+            "dbt_model_path": null,
+            "dbt_schema": null,
+            "config": {
+                "table_name": "PROD_SOURCE.s_663121821efd5175ce68478a_flattened",
+                "combine_logic_gate": "AND",
+                "combine_required_match_count": 1,
+                "combine_behavior": "MERGE",
+                "composite_key": [
+                    "Keywords",
+                    "Referring domains",
+                    "Referring page URL",
+                    "Referring page title",
+                    "Target URL"
+                ],
+                "last_modified_column": null,
+                "fields": [
+                    {
+                        "id": "efa247ec1abadf6df960dcec400eb7a4",
+                        "type": "STRING",
+                        "label": "Referring page title",
+                        "name": "Referring page title",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "af73ddd0e66d34bc2db636e53fbfcafb",
+                        "type": "STRING",
+                        "label": "Referring page URL",
+                        "name": "Referring page URL",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "4994a8ffeba4ac3140beb89e8d41f174",
+                        "type": "STRING",
+                        "label": "Language",
+                        "name": "Language",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "419f3742e6de8e0ec4b22cce005e7630",
+                        "type": "STRING",
+                        "label": "Platform",
+                        "name": "Platform",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "94f2ce5d4fee15bc0c7a485373493a37",
+                        "type": "STRING",
+                        "label": "Referring page HTTP code",
+                        "name": "Referring page HTTP code",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "f4bb07b0b30fcf3229241e3671c92c86",
+                        "type": "STRING",
+                        "label": "Domain rating",
+                        "name": "Domain rating",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "1f72410deecd85b61b1c8ffcf6bf4c99",
+                        "type": "STRING",
+                        "label": "UR",
+                        "name": "UR",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "2b0e3f633d1fd0192c6dfc5c7bc36c0e",
+                        "type": "STRING",
+                        "label": "Domain traffic",
+                        "name": "Domain traffic",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "e69f6a03f72340cd9c6da242af9be500",
+                        "type": "STRING",
+                        "label": "Referring domains",
+                        "name": "Referring domains",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "3ac121179339930941a53d6f8371445c",
+                        "type": "STRING",
+                        "label": "Linked domains",
+                        "name": "Linked domains",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "f20388fa811e6891bf921753d5747c1a",
+                        "type": "STRING",
+                        "label": "External links",
+                        "name": "External links",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "03b9f64f29e81ad02d41fd21247bd00d",
+                        "type": "STRING",
+                        "label": "Page traffic",
+                        "name": "Page traffic",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "867343577fa1f33caa632a19543bd252",
+                        "type": "STRING",
+                        "label": "Keywords",
+                        "name": "Keywords",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "e64df1d7c22b9638f084ce8a4aff3ff3",
+                        "type": "STRING",
+                        "label": "Target URL",
+                        "name": "Target URL",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "61f79c6159681d0009ccf34937fb6a71",
+                        "type": "STRING",
+                        "label": "Left context",
+                        "name": "Left context",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "a34285645af2703a9501db6fc881e5df",
+                        "type": "STRING",
+                        "label": "Anchor",
+                        "name": "Anchor",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "07d330e2bb2adbbdf50167438e6c3993",
+                        "type": "STRING",
+                        "label": "Right context",
+                        "name": "Right context",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "c0e179f10e6424149f4bf92c039a4ce5",
+                        "type": "STRING",
+                        "label": "Redirect Chain URLs",
+                        "name": "Redirect Chain URLs",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "401ba3183fb78c8b346783b88b6671bd",
+                        "type": "STRING",
+                        "label": "Redirect Chain status codes",
+                        "name": "Redirect Chain status codes",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "a1fa27779242b4902f7ae3bdd5c6d508",
+                        "type": "STRING",
+                        "label": "Type",
+                        "name": "Type",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "f15c1cae7882448b3fb0404682e17e61",
+                        "type": "STRING",
+                        "label": "Content",
+                        "name": "Content",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "ded50d13cb30cf23b301590bd0d1605a",
+                        "type": "STRING",
+                        "label": "Nofollow",
+                        "name": "Nofollow",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "039b15c4a4c6a7309b5d8082b32623ec",
+                        "type": "STRING",
+                        "label": "UGC",
+                        "name": "UGC",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "12fd2810563df7af7a752770971eb2a4",
+                        "type": "STRING",
+                        "label": "Sponsored",
+                        "name": "Sponsored",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "a15a459a0439bde1ab6508bce7a05547",
+                        "type": "STRING",
+                        "label": "Rendered",
+                        "name": "Rendered",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "65e65c8ab0d8609ce12fc68a03cb8e00",
+                        "type": "STRING",
+                        "label": "Raw",
+                        "name": "Raw",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "491513ead9bc4e82b1c073763b9226d7",
+                        "type": "STRING",
+                        "label": "Lost status",
+                        "name": "Lost status",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "59d2c64501a876a131c3f6ee3194a460",
+                        "type": "STRING",
+                        "label": "Drop reason",
+                        "name": "Drop reason",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "0c5130a18803de739175e9c275faa0a1",
+                        "type": "STRING",
+                        "label": "Discovered status",
+                        "name": "Discovered status",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "db92fcc79774b41c6718a941f3986658",
+                        "type": "STRING",
+                        "label": "First seen",
+                        "name": "First seen",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "55d95901560108d4e26d394794dd5e14",
+                        "type": "STRING",
+                        "label": "Last seen",
+                        "name": "Last seen",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "b578b733cbb788fc6ad208314d2c4c2b",
+                        "type": "STRING",
+                        "label": "Lost",
+                        "name": "Lost",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "a517747c3d12f99244ae598910d979c5",
+                        "type": "STRING",
+                        "label": "Author",
+                        "name": "Author",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "19c01b57ac5a6929c44d9374c12b80ab",
+                        "type": "STRING",
+                        "label": "Links in group",
+                        "name": "Links in group",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    }
+                ],
+                "filters": null,
+                "upstream_node_ids": [],
+                "special_node_args": null,
+                "include_in_snapshots": false
+            }
+        },
+        {
+            "id": "663508ce963722a96269c82c",
+            "name": "page",
+            "description": "",
+            "type": "DIMENSION",
+            "dbt_model_path": null,
+            "dbt_schema": null,
+            "config": {
+                "table_name": "",
+                "combine_logic_gate": "AND",
+                "combine_required_match_count": 1,
+                "combine_behavior": "MERGE",
+                "composite_key": null,
+                "last_modified_column": null,
+                "fields": [
+                    {
+                        "id": "2CHGH02LME",
+                        "type": "STRING",
+                        "label": "PAGE",
+                        "name": "PAGE",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "6U6OSF65YL",
+                                "source_node_id": "662d7abdadb38b779c2a7520",
+                                "attribute_key": "Extract Page",
+                                "attribute_id": "FIP65AD2PV",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": null
+                            },
+                            {
+                                "id": "H6WBTNT0Q7",
+                                "source_node_id": "662d7a7645256a705bb69493",
+                                "attribute_key": "PAGE_PATH",
+                                "attribute_id": "0b9c50629d5acd1ea0d74867f0ed6928",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": null
+                            }
+                        ],
+                        "part_of_composite_key": true,
+                        "taxonomic_id": "",
+                        "transformer": "",
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    }
+                ],
+                "filters": {
+                    "filters": [],
+                    "logic_gate": "CUSTOM",
+                    "search_query": null,
+                    "custom_sql": "\"PAGE\" not like '/account%'\nand \"PAGE\" not like '%/checkout%'\nand \"PAGE\" not like '/product%'\nand \"PAGE\" not like '%cart/%'\nand \"PAGE\" not like '%founder%'\nand \"PAGE\" not like '%gift_cards%'\nand \"PAGE\" not like '%/order%'"
+                },
+                "upstream_node_ids": [
+                    "662d7abdadb38b779c2a7520",
+                    "662d7a7645256a705bb69493"
+                ],
+                "special_node_args": null,
+                "include_in_snapshots": false
+            }
+        },
+        {
+            "id": "6635117b963722a96269c831",
+            "name": "organic_search_activity",
+            "description": "",
+            "type": "FACT",
+            "dbt_model_path": null,
+            "dbt_schema": null,
+            "config": {
+                "table_name": "",
+                "combine_logic_gate": "AND",
+                "combine_required_match_count": 1,
+                "combine_behavior": "MERGE",
+                "composite_key": null,
+                "last_modified_column": null,
+                "fields": [
+                    {
+                        "id": "MD35EBMXH3",
+                        "type": "STRING",
+                        "label": "Page",
+                        "name": "Page",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "FG9CLIR6YY",
+                                "source_node_id": "662d7abdadb38b779c2a7520",
+                                "attribute_key": "Extract Page",
+                                "attribute_id": "FIP65AD2PV",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": null
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "XYGG4KZFGT",
+                        "type": "DATE",
+                        "label": "DATE",
+                        "name": "DATE",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "3FTMKBZELH",
+                                "source_node_id": "662d7abdadb38b779c2a7520",
+                                "attribute_key": "DATE",
+                                "attribute_id": "K2VWN4BT8T",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": null
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "BFFAULFM5T",
+                        "type": "STRING",
+                        "label": "SEARCH_TYPE",
+                        "name": "SEARCH_TYPE",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "4HTQAA5UAH",
+                                "source_node_id": "662d7abdadb38b779c2a7520",
+                                "attribute_key": "SEARCH_TYPE",
+                                "attribute_id": "OSH7EEEGRO",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": null
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "O396GAUPF9",
+                        "type": "STRING",
+                        "label": "DEVICE",
+                        "name": "DEVICE",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "B0JFNZ45AG",
+                                "source_node_id": "662d7abdadb38b779c2a7520",
+                                "attribute_key": "DEVICE",
+                                "attribute_id": "2V5IQGIO5P",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": null
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "IFEIIFIAZ9",
+                        "type": "STRING",
+                        "label": "QUERY",
+                        "name": "QUERY",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "Z484NQP1OT",
+                                "source_node_id": "662d7abdadb38b779c2a7520",
+                                "attribute_key": "QUERY",
+                                "attribute_id": "QJLZBXXZTP",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": null
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "9IYYTS7ZWM",
+                        "type": "STRING",
+                        "label": "CLICKS",
+                        "name": "CLICKS",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "JQWDZFQ2G1",
+                                "source_node_id": "662d7abdadb38b779c2a7520",
+                                "attribute_key": "CLICKS",
+                                "attribute_id": "XU9U7NNQP1",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": null
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "29DNTZQ1FC",
+                        "type": "STRING",
+                        "label": "IMPRESSIONS",
+                        "name": "IMPRESSIONS",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "7VYHL32FOA",
+                                "source_node_id": "662d7abdadb38b779c2a7520",
+                                "attribute_key": "IMPRESSIONS",
+                                "attribute_id": "DBT85HUDT1",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": null
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "U4IXUB0CJ9",
+                        "type": "STRING",
+                        "label": "POSITION",
+                        "name": "POSITION",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "9CPU39C38F",
+                                "source_node_id": "662d7abdadb38b779c2a7520",
+                                "attribute_key": "POSITION",
+                                "attribute_id": "89CF3JEEGV",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": null
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "IXZYDISZ5V",
+                        "type": "STRING",
+                        "label": "COUNTRY",
+                        "name": "COUNTRY",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "MC7L8YNMY3",
+                                "source_node_id": "662d7abdadb38b779c2a7520",
+                                "attribute_key": "COUNTRY",
+                                "attribute_id": "HRN7ETVY2O",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": null
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "465dcab8-e661-4e02-846d-eb0cacbd211b",
+                        "type": "FOREIGN_KEY",
+                        "label": "page_id",
+                        "name": "page_id",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": "66351219963722a96269c834",
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "3e2fc0bc-04cc-48a2-9238-09ba6c914670",
+                        "type": "FOREIGN_KEY",
+                        "label": "query_id",
+                        "name": "query_id",
+                        "description": "",
+                        "map_options": [],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": null,
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": "66351c97040ab27cb887836a",
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    }
+                ],
+                "filters": null,
+                "upstream_node_ids": [
+                    "662d7abdadb38b779c2a7520"
+                ],
+                "special_node_args": null,
+                "include_in_snapshots": false
+            }
+        },
+        {
+            "id": "66351a06963722a96269c840",
+            "name": "organic_search_events",
+            "description": "See queries by page",
+            "type": "DATAMART",
+            "dbt_model_path": null,
+            "dbt_schema": null,
+            "config": {
+                "table_name": "",
+                "combine_logic_gate": "AND",
+                "combine_required_match_count": 1,
+                "combine_behavior": "AGGREGATE",
+                "composite_key": null,
+                "last_modified_column": null,
+                "fields": [
+                    {
+                        "id": "R08IKSAUO6",
+                        "type": "STRING",
+                        "label": "COUNTRY",
+                        "name": "COUNTRY",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "5D0T834761",
+                                "source_node_id": "6635117b963722a96269c831",
+                                "attribute_key": "COUNTRY",
+                                "attribute_id": "IXZYDISZ5V",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": [
+                                    {
+                                        "label": "organic_search_activity",
+                                        "object_type": "NODE",
+                                        "object_id": "6635117b963722a96269c831"
+                                    }
+                                ]
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "IFB6KVZS69",
+                        "type": "STRING",
+                        "label": "SEARCH_TYPE",
+                        "name": "SEARCH_TYPE",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "LQPPFH8BHK",
+                                "source_node_id": "6635117b963722a96269c831",
+                                "attribute_key": "SEARCH_TYPE",
+                                "attribute_id": "BFFAULFM5T",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": [
+                                    {
+                                        "label": "organic_search_activity",
+                                        "object_type": "NODE",
+                                        "object_id": "6635117b963722a96269c831"
+                                    }
+                                ]
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "35OHHVCZHX",
+                        "type": "STRING",
+                        "label": "Page",
+                        "name": "Page",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "3TSMSRDQM2",
+                                "source_node_id": "6635117b963722a96269c831",
+                                "attribute_key": "Page",
+                                "attribute_id": "MD35EBMXH3",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": [
+                                    {
+                                        "label": "organic_search_activity",
+                                        "object_type": "NODE",
+                                        "object_id": "6635117b963722a96269c831"
+                                    }
+                                ]
+                            }
+                        ],
+                        "part_of_composite_key": true,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "VXXKZDROE8",
+                        "type": "STRING",
+                        "label": "QUERY",
+                        "name": "QUERY",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "XXNBD22MFC",
+                                "source_node_id": "6635117b963722a96269c831",
+                                "attribute_key": "QUERY",
+                                "attribute_id": "IFEIIFIAZ9",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": [
+                                    {
+                                        "label": "organic_search_activity",
+                                        "object_type": "NODE",
+                                        "object_id": "6635117b963722a96269c831"
+                                    }
+                                ]
+                            }
+                        ],
+                        "part_of_composite_key": true,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "V8ESZMDYS3",
+                        "type": "STRING",
+                        "label": "DEVICE",
+                        "name": "DEVICE",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "4IMCSLZVKB",
+                                "source_node_id": "6635117b963722a96269c831",
+                                "attribute_key": "DEVICE",
+                                "attribute_id": "O396GAUPF9",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": [
+                                    {
+                                        "label": "organic_search_activity",
+                                        "object_type": "NODE",
+                                        "object_id": "6635117b963722a96269c831"
+                                    }
+                                ]
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "TE3O7FG1ZH",
+                        "type": "STRING",
+                        "label": "CLICKS",
+                        "name": "CLICKS",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "Z2DBL8BZUY",
+                                "source_node_id": "6635117b963722a96269c831",
+                                "attribute_key": "CLICKS",
+                                "attribute_id": "9IYYTS7ZWM",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": [
+                                    {
+                                        "label": "organic_search_activity",
+                                        "object_type": "NODE",
+                                        "object_id": "6635117b963722a96269c831"
+                                    }
+                                ]
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "5COJXG396Q",
+                        "type": "STRING",
+                        "label": "IMPRESSIONS",
+                        "name": "IMPRESSIONS",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "F1NLVP07WN",
+                                "source_node_id": "6635117b963722a96269c831",
+                                "attribute_key": "IMPRESSIONS",
+                                "attribute_id": "29DNTZQ1FC",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": [
+                                    {
+                                        "label": "organic_search_activity",
+                                        "object_type": "NODE",
+                                        "object_id": "6635117b963722a96269c831"
+                                    }
+                                ]
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    },
+                    {
+                        "id": "2DQO3HKJNH",
+                        "type": "STRING",
+                        "label": "Brand Search",
+                        "name": "Brand Search",
+                        "description": "",
+                        "map_options": [
+                            {
+                                "id": "2OROR80PXV",
+                                "source_node_id": "662d796245256a705bb6948b",
+                                "attribute_key": "Brand Search",
+                                "attribute_id": "VKYD1QY3DA",
+                                "concat_joiner": null,
+                                "combination_rule": "PICK_ONE",
+                                "sub_options": null,
+                                "join_path": [
+                                    {
+                                        "label": "organic_search_activity",
+                                        "object_type": "NODE",
+                                        "object_id": "6635117b963722a96269c831"
+                                    },
+                                    {
+                                        "label": "query",
+                                        "object_type": "NODE_RELATIONSHIP",
+                                        "object_id": "66351249963722a96269c836"
+                                    },
+                                    {
+                                        "label": "query (query)",
+                                        "object_type": "NODE",
+                                        "object_id": "662d796245256a705bb6948b"
+                                    }
+                                ]
+                            }
+                        ],
+                        "part_of_composite_key": false,
+                        "taxonomic_id": "",
+                        "transformer": null,
+                        "transformer_arguments": null,
+                        "relationship_id": null,
+                        "merge_behavior": "PRIORITIZE",
+                        "advanced_mode": false,
+                        "custom_sql": null
+                    }
+                ],
+                "filters": null,
+                "upstream_node_ids": [
+                    "6635117b963722a96269c831"
+                ],
+                "special_node_args": {},
+                "include_in_snapshots": false
             }
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "id": "66351219963722a96269c834",
+            "name": "Page",
+            "description": "",
+            "child_node_id": "6635117b963722a96269c831",
+            "parent_node_id": "663508ce963722a96269c82c",
+            "child_foreign_key_name": "page_id",
+            "config": {
+                "parent_lookups": [
+                    {
+                        "parent_column": "PAGE",
+                        "match_child_column": "Page"
+                    }
+                ],
+                "parent_lookup_logic_gate": "AND",
+                "denormalized_fields": []
+            }
+        },
+        {
+            "id": "66351c97040ab27cb887836a",
+            "name": "query",
+            "description": "",
+            "child_node_id": "6635117b963722a96269c831",
+            "parent_node_id": "662d796245256a705bb6948b",
+            "child_foreign_key_name": "query_id",
+            "config": {
+                "parent_lookups": [
+                    {
+                        "parent_column": "QUERY",
+                        "match_child_column": "QUERY"
+                    }
+                ],
+                "parent_lookup_logic_gate": "AND",
+                "denormalized_fields": []
+            }
+        }
+    ],
     "reports": []
 }
