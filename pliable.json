@@ -1,6 +1,6 @@
 {
     "plb_config_version": "1",
-    "generated_at": "2024-05-03T17:22:09.329236",
+    "generated_at": "2024-05-03T17:31:45.622343",
     "nodes": [
         {
             "id": "662d78acadb38b779c2a7517",
@@ -1846,7 +1846,7 @@
                 "table_name": "",
                 "combine_logic_gate": "AND",
                 "combine_required_match_count": 1,
-                "combine_behavior": "AGGREGATE",
+                "combine_behavior": "MERGE",
                 "composite_key": null,
                 "last_modified_column": null,
                 "fields": [
@@ -2089,7 +2089,7 @@
                         "description": "",
                         "map_options": [
                             {
-                                "id": "2OROR80PXV",
+                                "id": "XP1G4P67AS",
                                 "source_node_id": "662d796245256a705bb6948b",
                                 "attribute_key": "Brand Search",
                                 "attribute_id": "VKYD1QY3DA",
@@ -2105,7 +2105,7 @@
                                     {
                                         "label": "query",
                                         "object_type": "NODE_RELATIONSHIP",
-                                        "object_id": "66351249963722a96269c836"
+                                        "object_id": "66351c97040ab27cb887836a"
                                     },
                                     {
                                         "label": "query (query)",
